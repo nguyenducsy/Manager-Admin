@@ -1,0 +1,105 @@
+<div class="flex align-items-center justify-content-center card" style="min-height: 100vh">
+    <div class="card w-4">
+        <h2>Sign up</h2>
+        <form class="p-5 formgrid grid" [formGroup]="signupForm" [ngStyle]="{ backgroundColor: 'var(--bluegray-100)' }" action="">
+            <div class="field col-6 mb-5">
+                <label for="username">USERNAME</label>
+                <span class="p-float-label flex-row">
+          <input
+            pInputText
+            [ngClass]="{
+              'ng-invalid ng-dirty':
+                username.invalid == true && (username.dirty || username.touched)
+            }"
+            formControlName="username"
+            id="username"
+            type="text"
+            placeholder="Enter username"
+            class="py-2 text-base text-color surface-overlay p-2 w-full border-noround"
+          />
+        </span>
+                <small *ngIf="username?.invalid && (username.dirty || username.touched)" class="p-error">Username is not available</small
+        >
+      </div>
+      <div class="field col-6">
+        <label for="email">E-MAIL</label>
+        <span class="p-float-label flex-row">
+          <input
+            formControlName="email"
+            pInputText
+            id="username"
+            type="text"
+            placeholder="Enter your E-mail"
+            class="py-2 text-base text-color surface-overlay p-2 w-full border-noround"
+          />
+        </span>
+      </div>
+      <div class="field col-6">
+        <label for="password">PASSWORD</label>
+        <span class="p-float-label flex-row">
+          <input
+            pInputText
+            [ngClass]="{
+              'ng-invalid ng-dirty':
+                password?.invalid == true &&
+                (password?.dirty || password?.touched)
+            }"
+            formControlName="password"
+            id="password"
+            type="text"
+            placeholder="Enter password"
+            class="py-2 text-base text-color surface-overlay p-2 w-full border-noround"
+          />
+        </span>
+        <small
+          *ngIf="password?.invalid && (password?.dirty || password?.touched)"
+          class="p-error"
+          >Password is not available</small
+        >
+      </div>
+      <div class="field col-6">
+        <label for="password">PASSWORD AGAIN</label>
+        <span class="p-float-label flex-row">
+          <input
+            pInputText
+            [ngClass]="{
+              'ng-invalid ng-dirty':
+                confirmPass?.invalid == true &&
+                (confirmPass?.dirty || password?.touched)
+            }"
+            id="confirmPass"
+            type="password"
+            formControlName="confirmPass"
+            placeholder="Confirm password"
+            class="py-2 text-base text-color surface-overlay p-2 w-full border-noround"
+          />
+        </span>
+        <small
+          *ngIf="
+            confirmPass?.invalid && (confirmPass?.dirty || confirmPass?.touched)
+          "
+          class="p-error"
+          >Password is not available</small
+        >
+        <small
+          *ngIf="
+            password.value !== confirmPass.value && confirmPass.value !== ''
+          "
+          class="p-error"
+          ><br />Confirm does't match to Password</small
+        >
+      </div>
+      <div class="col p-0 text-right">
+        <button
+          (click)="btnSignup()"
+          [disabled]="!signupForm.valid || password.value !== confirmPass.value"
+          pButton
+          type="button"
+          class="p-button-raised p-button-rounded p-button-success px-6 font-medium"
+        >
+          REGISTER
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

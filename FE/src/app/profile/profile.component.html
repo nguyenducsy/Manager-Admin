@@ -1,0 +1,44 @@
+<div class="flex grid p-4">
+    <div class="left col-4 text-center">
+        <p-image src="https://png.pngtree.com/png-vector/20190625/ourlarge/pngtree-business-male-user-avatar-vector-png-image_1511454.jpg" alt="Image" width="250"></p-image>
+        <h3>{{ username }}</h3>
+    </div>
+    <div class="right col-8">
+        <h2>My Profile</h2>
+        <hr />
+        <form class="m-0 mt-5" [formGroup]="profileForm">
+            <div class="p-5 formgrid grid" [ngStyle]="{ backgroundColor: 'var(--bluegray-100)' }">
+                <div class="field col-6 mb-5">
+                    <label for="firstname">FIRST NAME</label>
+                    <input formControlName="firstName" id="firstname" type="text" value="" class="py-2 text-base text-color surface-overlay p-2 border-1 border-solid surface-border appearance-none outline-none focus:border-primary w-full" />
+                </div>
+                <div class="field col-6">
+                    <label for="lastname">LAST NAME</label>
+                    <input formControlName="lastName" id="lastname" type="text" value="" class="py-2 text-base text-color surface-overlay p-2 border-1 border-solid surface-border appearance-none outline-none focus:border-primary w-full" />
+                </div>
+            </div>
+            <h3 class="mt-4">Change Password</h3>
+            <div class="p-5 formgrid grid" [ngStyle]="{ backgroundColor: 'var(--bluegray-100)' }">
+                <div class="field col-6">
+                    <label for="password">NEW PASSWORD</label>
+                    <input formControlName="password" id="password" type="password" placeholder="Enter password" class="py-2 text-base text-color surface-overlay p-2 border-1 border-solid surface-border appearance-none outline-none focus:border-primary w-full" />
+                    <!-- <p-password styleClass=" p-input-icon-right" [(ngModel)]="value3" [toggleMask]="true"></p-password> -->
+                </div>
+                <div class="field col-6">
+                    <label for="password">RE-TYPE NEW PASSWORD</label>
+                    <input formControlName="confirmpassword" id="password" type="password" placeholder="Confirm password" class="py-2 text-base text-color surface-overlay p-2 border-1 border-solid surface-border appearance-none outline-none focus:border-primary w-full" />
+                </div>
+            </div>
+            <div class="col p-0 mt-5 flex justify-content-between">
+                <div class="text-left">
+                    <button pButton (click)="saveChanges()" type="button" class="p-button-raised p-button-rounded p-button-primary px-6 font-medium">
+            SAVE CHANGES
+          </button>
+                </div>
+                <div class="text-right">
+                    <button pButton (click)="btnLogout()" type="button" label="Log out" icon="pi pi-power-off" class="p-button p-button-rounded p-button-secondary"></button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

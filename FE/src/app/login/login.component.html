@@ -1,0 +1,68 @@
+<div class="flex align-items-center justify-content-center card" style="height: 100vh">
+    <div class="card w-4">
+        <h2>Login</h2>
+        <form class="p-5" [ngStyle]="{ backgroundColor: 'var(--primary-500)' }" action="" [formGroup]="userForm">
+            <div class="field">
+                <label for="username">USERNAME</label>
+                <span class="p-float-label flex-row">
+          <input
+            pInputText
+            [ngClass]="{
+              'ng-invalid ng-dirty':
+                username?.invalid == true &&
+                (username?.dirty || username?.touched)
+            }"
+            id="username"
+            type="text"
+            formControlName="username"
+            placeholder="Enter username"
+            class="py-2 p-2 w-full border-noround"
+          />
+        </span>
+                <small *ngIf="username?.invalid && (username?.dirty || username?.touched)" id="username2-help" class="p-error block bg-white">Username is not available.</small
+        >
+      </div>
+      <div class="field">
+        <label for="password">PASSWORD</label>
+        <span class="p-float-label flex-row">
+          <input
+            pInputText
+            [ngClass]="{
+              'ng-invalid ng-dirty':
+                password?.invalid == true &&
+                (password?.dirty || password?.touched)
+            }"
+            id="password"
+            type="password"
+            formControlName="password"
+            placeholder="Enter password"
+            class="py-2 p-2 w-full border-noround"
+          />
+        </span>
+        <small
+          *ngIf="password?.invalid && (password?.dirty || password?.touched)"
+          id="password-help"
+          class="p-error block bg-white"
+          >Password is not available.</small
+        >
+      </div>
+      <div class="field flex align-items-center">
+        <div class="field-checkbox">
+          <input type="checkbox" id="city1" #isChecked />
+          <label for="city1">Remember me</label>
+        </div>
+        <div class="col p-0 text-right">
+          <button
+            [disabled]="!userForm.valid"
+            pButton
+            type="button"
+            (click)="login()"
+            class="p-button-raised p-button-rounded p-button-success px-6 font-medium"
+          >
+            LOGIN
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

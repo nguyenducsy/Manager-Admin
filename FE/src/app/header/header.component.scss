@@ -1,0 +1,16 @@
+p-menubar {
+    ul li a {
+        color: gray;
+        text-decoration: none;
+        list-style: none;
+        padding: 0 1rem;
+        font-size: 13px;
+    }
+}
+
+.btnlogout {
+    background: none;
+    border: none;
+    color: gray;
+    cursor: pointer;
+}

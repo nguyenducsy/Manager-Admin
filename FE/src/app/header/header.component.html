@@ -1,0 +1,28 @@
+<p-menubar>
+    <ng-template pTemplate="start">
+        <h3 class="p-0 m-0">Mini-project</h3>
+    </ng-template>
+
+    <ng-template pTemplate="end">
+        <ul class="flex justify-content-end align-items-center">
+            <li class="flex align-items-center">
+                <i class="pi pi-user"> </i>
+                <a class="pl-2" routerLink="{{ isLogin ? '/profile' : '/login' }}">
+          {{
+            isLogin
+              ? firstName || lastName
+                ? firstName + " " + lastName
+                : userName
+              : "Login"
+          }}
+        </a>
+            </li>
+            |
+            <li class="flex">
+                <button class="btnlogout" type="button" (click)="btnLogout()">
+          {{ isLogin ? "Logout" : "Regiseter" }}
+        </button>
+            </li>
+        </ul>
+    </ng-template>
+</p-menubar>
